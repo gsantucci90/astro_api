@@ -12,7 +12,7 @@
         }
     },
     {
-        "id": 2,
+        "id": 432,
         "right_ascension": 130.3,
         "declination": -22.1,
         "source_name": "Object2",
@@ -24,7 +24,7 @@
         }
     },
     {
-        "id": 3,
+        "id": 3355,
         "right_ascension": 130.3,
         "declination": -22.1,
         "source_name": "Object2",
@@ -36,7 +36,7 @@
         }
     },
     {
-        "id": 4,
+        "id": 4523,
         "right_ascension": 130.3,
         "declination": -22.1,
         "source_name": "Object2",
@@ -48,7 +48,7 @@
         }
     },
     {
-        "id": 5,
+        "id": 45,
         "right_ascension": 1330.3,
         "declination": -222.1,
         "source_name": "Object2",

@@ -17,12 +17,14 @@ class Command(BaseCommand):
                     
                     # Example of loading related data
                     data_release, created = DataRelease.objects.get_or_create(
+                        id=row['data_release']['id'],
                         name=row['data_release']['name'],
                         pretty_name=row['data_release']['pretty_name'],
                         version=float(row['data_release']['version'])
                     )
 
                     AstronomicalObject.objects.create(
+                        id=row['id'],
                         right_ascension=float(row['right_ascension']),
                         declination=float(row['declination']),
                         source_name=row['source_name'],
