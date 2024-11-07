@@ -8,12 +8,14 @@ class DataReleaseSerializer(serializers.ModelSerializer):
     
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        # Rename the field in the output
-        representation['ID'] = representation.pop('id')
-        representation['Name'] = representation.pop('name')
-        representation['Pretty Name'] = representation.pop('pretty_name')
-        representation['Version'] = representation.pop('version')
-        return representation
+        # Rename fields
+        renamed_representation = {
+            "ID": representation["id"],
+            "Name": representation["name"],
+            "Pretty Name": representation["pretty_name"],
+            "Version": representation["version"]
+        }
+        return renamed_representation
         
 class AstronomicalObjectSerializer(serializers.ModelSerializer):
     data_release = DataReleaseSerializer(read_only=True)
@@ -24,10 +26,12 @@ class AstronomicalObjectSerializer(serializers.ModelSerializer):
     
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        # Rename the field in the output
-        representation['ID'] = representation.pop('id')
-        representation['Right Ascension'] = representation.pop('right_ascension')
-        representation['Declination'] = representation.pop('declination')
-        representation['Source Name'] = representation.pop('source_name')
-        representation['Data Release'] = representation.pop('data_release')
-        return representation
+        # Rename fields
+        renamed_representation = {
+            "ID": representation["id"],
+            "Right Ascension": representation["right_ascension"],
+            "Declination": representation["declination"],
+            "Source Name": representation["source_name"],
+            "Data Release": representation["data_release"]
+        }
+        return renamed_representation

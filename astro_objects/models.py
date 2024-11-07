@@ -10,7 +10,7 @@ class DataRelease(models.Model):
         return self.pretty_name
 
 class AstronomicalObject(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True)   
     right_ascension = models.FloatField()
     declination = models.FloatField()
     source_name = models.CharField(max_length=100)
