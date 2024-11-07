@@ -23,7 +23,7 @@ class Command(BaseCommand):
                         version=float(row['data_release']['version'])
                     )
 
-                    AstronomicalObject.objects.create(
+                    AstronomicalObject.objects.get_or_create(
                         id=row['id'],
                         right_ascension=float(row['right_ascension']),
                         declination=float(row['declination']),
