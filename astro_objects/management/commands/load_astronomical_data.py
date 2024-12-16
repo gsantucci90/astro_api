@@ -9,27 +9,29 @@ class Command(BaseCommand):
         parser.add_argument('file_path', type=str, help="Path to the JSON file.")
 
     def handle(self, *args, **kwargs):
+        # Open your JSON dataset 
         file_path = kwargs['file_path']
         try:
             with open(file_path, newline='') as jsonfile:
-                reader = json.load(jsonfile)
-                for row in reader:
-                    
-                    # Example of loading related data
-                    data_release, created = DataRelease.objects.get_or_create(
-                        id=row['data_release']['id'],
-                        name=row['data_release']['name'],
-                        pretty_name=row['data_release']['pretty_name'],
-                        version=float(row['data_release']['version'])
-                    )
+                data = json.load(jsonfile)
 
-                    AstronomicalObject.objects.get_or_create(
-                        id=row['id'],
-                        right_ascension=float(row['right_ascension']),
-                        declination=float(row['declination']),
-                        source_name=row['source_name'],
+                # Iterate over the data and load objects
+                for obj_data in data:
+                    # Get or create the DataRelease object based on the "name" to avoid duplicates
+                    data_release, created = DataRelease.objects.get_or_create(
+                        name=obj_data['data_release']['name'],
+                        pretty_name=obj_data['data_release']['pretty_name'],
+                        version=obj_data['data_release']['version']
+                    )
+    
+                    # Create the AstronomicalObject instance and link it to the DataRelease
+                    AstronomicalObject.objects.create(
+                        right_ascension=obj_data['right_ascension'],
+                        declination=obj_data['declination'],
+                        source_name=obj_data['source_name'],
                         data_release=data_release
                     )
+                       
             self.stdout.write(self.style.SUCCESS('Data loaded successfully'))
         except Exception as e:
             self.stdout.write(self.style.ERROR(f'Error loading data: {e}'))
