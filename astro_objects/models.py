@@ -12,7 +12,7 @@ class AstronomicalObject(models.Model):
     right_ascension = models.FloatField()
     declination = models.FloatField()
     source_name = models.CharField(max_length=100)
-    data_release = models.ForeignKey(DataRelease, on_delete=models.CASCADE)
+    data_release = models.ForeignKey(DataRelease, on_delete=models.PROTECT)
 
         
     def __str__(self):
