@@ -94,7 +94,7 @@ python manage.py test
 ```
 
 ## API Documentation
-The API is documented using Swagger. To view the interactive documentation, navigate to:
+The API is documented using Swagger. To view the interactive documentation, run the development server and navigate to:
 http://127.0.0.1:8000/swagger/
 
 
