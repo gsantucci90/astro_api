@@ -83,8 +83,8 @@ http://127.0.0.1:8000
 
 The API is available at:
 
-/api/astro_objects/ - List all astronomical objects
-/api/astro_objects/<id>/ - Retrieve a specific astronomical object
+/api/astro_objects/ - List all astronomical objects<br />
+/api/astro_objects/<id>/ - Retrieve a specific astronomical object<br />
 / - API root with links to endpoints
 
 ### 7. Running tests
@@ -106,5 +106,5 @@ If you run into any issues, check the following:
 
 Make sure you have Python 3.9 or higher installed.
 Ensure that all dependencies are installed using pip install -r requirements.txt.
-If running tests fails, ensure that migrations have been run (python manage.py migrate).
+If running tests fail, ensure that migrations have been run (python manage.py migrate).
 If you encounter errors related to URL resolution, double-check that your URL configurations match the expected patterns.
