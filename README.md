@@ -35,7 +35,7 @@ Follow these steps to set up and run the app locally:
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/astro-api.git
+git clone https://github.com/gsantucci90/astro-api.git
 cd astro-api
 ```
 
